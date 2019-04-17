@@ -20,15 +20,15 @@ def scanline_convert(polygons, i, screen, zbuffer ):
     while count < y1t:
         draw_line(int(x0), int(count), int(z0), int(x1), int(count), int(z1), screen, zbuffer, c)
         x0 += (x0t - x2t) / (y0t - y2t)
-        z0 += (z0t - z1t) / (y0t - y2t)
+        z0 += (z0t - z2t) / (y0t - y2t)
         x1 += (x1t - x2t) / (y1t - y2t)  
-        z1 += (z1t - z2t) / (y0t - y2t)
+        z1 += (z1t - z2t) / (y1t - y2t)
         count += 1
 
     while count < y0t:
         draw_line(int(x0), int(count), int(z0), int(x2), int(count), int(z2), screen, zbuffer, c)
         x0 += (x0t - x2t) / (y0t - y2t)
-        z0 += (z0t - z1t) / (y0t - y2t)
+        z0 += (z0t - z2t) / (y0t - y2t)
         x2 += (x0t - x1t) / (y0t - y1t)  
         z2 += (z0t - z1t) / (y0t - y1t)
         count += 1
